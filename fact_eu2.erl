@@ -39,7 +39,7 @@ all_tests()-> lists:foldl(fun({Func,Arity},Acc)->
                        ).
 
 all_tests2(L)-> lists:map(fun({Inp,Out})-> 
-                            io:format("~p:~p ~p ~p ",[?MODULE,?LINE,?FUNCTION_NAME,{Inp,Out,fact(Inp)}]), 
+                            %io:format("~p:~p ~p ~p ",[?MODULE,?LINE,?FUNCTION_NAME,{Inp,Out,fact(Inp)}]), 
                             {Inp,Out,fact(Inp)==Out} 
                           end,L
                          ).
@@ -49,8 +49,8 @@ test_2()-> all_tests2([ {0,1},
                             {2,2},
                             {3,6},
                             {-1,{error, <<"negative input">>,[-1] }},
-                            {[],{error, <<"negative input">>,[[]] }},
-                            {1.1,{error, <<"negative input">>,[1.1] }}
+                            {[],{error, <<"bad input">>,[[]] }},
+                            {1.1,{error, <<"float in input">>,[1.1] }}
                           ]).
 
 
