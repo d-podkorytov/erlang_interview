@@ -49,6 +49,7 @@ cv(PidL,N) -> L=lists:seq(N),
             Acc+1
            end, L). 
 
+% recursion free factorial based om list generation and fold it next
 fact_l(N) when is_float(N) ->?ERROR_INFO(<<"float in input">>,N);
 fact_l(N) when N <0 andalso is_integer(N)  -> ?ERROR_INFO(<<"negative input">>,N);
 fact_l(N) when not is_integer(N)  -> ?ERROR_INFO(<<"bad input">>,N);
